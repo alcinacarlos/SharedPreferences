@@ -16,11 +16,12 @@ class ThemeRepository(private val context: Context) {
     val isDarkTheme: Flow<Boolean> = context.dataStore.data.map { preferences ->
         preferences[THEME_KEY] ?: false
     }
-
+    // Obtener el tema actual
     suspend fun getTheme(): Boolean {
         return isDarkTheme.first()
     }
 
+    // Cambiar el tema
     suspend fun changeTheme() {
         context.dataStore.edit { preferences ->
             preferences[THEME_KEY] = !getTheme()

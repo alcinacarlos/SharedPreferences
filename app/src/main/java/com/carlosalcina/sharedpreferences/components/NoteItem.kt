@@ -26,9 +26,11 @@ fun NoteItem(note: String, onDelete: () -> Unit, onEdit: () -> Unit) {
     ) {
         Text(text = note, modifier = Modifier.weight(1f))
         Row {
+            // Boton Editar
             IconButton(onClick = onEdit) {
                 Icon(Icons.Default.Edit, contentDescription = "Editar")
             }
+            // Boton eliminar
             IconButton(onClick = onDelete) {
                 Icon(Icons.Default.Delete, contentDescription = "Eliminar")
             }

@@ -40,14 +40,17 @@ fun MainBody(noteRepository: NotasRepository, themeRepository: ThemeRepository, 
     var texto = remember { mutableStateOf("") }
     var noteToEdit = remember { mutableStateOf<String?>(null) }
 
+    // Estructura principal de la aplicación
     Scaffold(
         topBar = {
+            // Barra arriba del todo
             TopAppBar(
                 title = { Text("Notas App") },
                 actions = {
                     ThemeButton(
                         isDarkTheme = darkThemeValue
                     ) {
+                        // Cambiar el tema
                         coroutineScope.launch {
                             themeRepository.changeTheme()
                         }
